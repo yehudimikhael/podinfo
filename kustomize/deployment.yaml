@@ -48,27 +48,21 @@ spec:
         - name: PODINFO_UI_COLOR
           value: "#34577c"
         livenessProbe:
-            httpGet:
-              path: /rrrr
-              port: 8080
-            # exec:
-            #   command:
-            # - podcli
-            # - check
-            # - http
-            # - localhost:9898/healthz
+            exec:
+              command:
+            - podcli
+            - check
+            - http
+            - localhost:9898/healthz
             initialDelaySeconds: 5
             timeoutSeconds: 5
           readinessProbe:
-            httpGet:
-              path: /tttt
-              port: 8080
-            # exec:
-            #   command:
-            #   - podcli
-            #   - check
-            #   - http
-            #   - localhost:9898/readyz
+            exec:
+              command:
+              - podcli
+              - check
+              - http
+              - localhost:9898/readyz
             initialDelaySeconds: 5
             timeoutSeconds: 5
         resources:
